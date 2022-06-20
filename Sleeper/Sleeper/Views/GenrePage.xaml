@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sleeper.Views.GenrePage"
+             xmlns:vm="clr-namespace:Sleeper.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="background1small.jpg"
+             >
+    
+    <ContentPage.BindingContext>
+        <vm:GenrePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="0">
+            
+            <StackLayout HeightRequest="75" BackgroundColor="Black">
+                <Label HorizontalOptions="Center" TextColor="White" Padding="0,5,0,0" FontAttributes="Bold" Text="Banner"/>
+            </StackLayout>
+            
+            <CollectionView ItemsSource="{Binding MusicGenre}"
+                            SelectedItem="{Binding SelectedGenre,Mode=TwoWay}"
+                            ItemsLayout="VerticalGrid, 2"
+                            SelectionMode="Single"
+                            Margin="15,15,15,15"
+                            x:Name="genreCollection"
+                            >
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Margin="10,0,0,0"
+                               Text="Music Genres"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               FontSize="Small"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackLayout IsClippedToBounds="True">
+                                <Frame BackgroundColor="Transparent"
+                                       IsClippedToBounds="True"
+                                       HasShadow="True">
+                                    <StackLayout IsClippedToBounds="True">
+                                        <Frame IsClippedToBounds="True" HasShadow="True" BackgroundColor="Transparent" CornerRadius="250" Padding="0">
+                                            <Image
+                                            Source="{Binding Image}"
+                                            Aspect="AspectFill"
+                                            WidthRequest="150"
+                                            HeightRequest="150"
+                                            />
+                                        </Frame>
+                                        
+                                        <Label
+                                            TextColor="White"
+                                            BackgroundColor="#101714a6"
+                                            Text="{Binding Genre}"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="CenterAndExpand"
+                                            FontAttributes="Bold" 
+                                            />
+                                    </StackLayout>
+
+
+
+                                </Frame>
+
+                            </StackLayout>
+                        </Grid>
+                        
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

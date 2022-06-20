@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sleeper.Views.SleeperMainPage"
+             BackgroundImageSource="background1small.jpg"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:Sleeper.ViewModels"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:SleeperMainPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            <StackLayout>
+                <Label TextColor="White" Text="{Binding Genre}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <ListView
+                ItemsSource="{Binding MusicList}"
+                SelectedItem="{Binding SelectedMusic, Mode=TwoWay}"
+                CachingStrategy="RecycleElement"
+                SelectionMode="Single"
+                HasUnevenRows="True"
+                Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20" 
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="background1small.png" WidthRequest="50" HeightRequest="66"/>
+                                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontSize="15" TextColor="Gray" Text="TrackId:"/>
+                                                <Label FontSize="15" TextColor="Black" Text="{Binding Id}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontSize="15" TextColor="Gray" Text="Author:"/>
+                                                <Label FontSize="15" TextColor="Black" Text="{Binding Author}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontSize="15" TextColor="Gray" Text="Song Name:" HorizontalTextAlignment="Start"/>
+                                                <Label FontSize="15" TextColor="Black" Text="{Binding Name}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!--<StackLayout Orientation="Horizontal">
+                                            <Button Command="{Binding PlayCommand}"/>
+                                        </StackLayout>-->
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+            <StackLayout>
+                <Frame WidthRequest="120" HeightRequest="60" BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical">
+                        <Slider Maximum="{Binding SliderMax, Mode=TwoWay}" Minimum="0" Value="{Binding SliderValue, Mode=TwoWay}" ValueChanged="Slider_ValueChanged" MinimumTrackColor="Black" ThumbColor="Black" />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="Start">
+                                <Label HorizontalOptions="Start" TextColor="Black" Text="{Binding ElapsedTime}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsClippedToBounds="True">
+                                <ImageButton Source="forwardddd.png" Command="{Binding BackwardCommand}" Aspect="AspectFill" BackgroundColor="White" BorderColor="Transparent" BorderWidth="0" WidthRequest="25" CornerRadius="100" RotationY="0"/>
+                                <ImageButton HorizontalOptions="Center" Command="{Binding PlayCommand}" Source="play2.png" BackgroundColor="White" Aspect="AspectFill" BorderColor="Transparent" BorderWidth="0" WidthRequest="25" CornerRadius="100"/>
+                                <ImageButton Source="forwardddd.png" Command="{Binding ForwardCommand}" Aspect="AspectFill" BackgroundColor="White" BorderColor="Transparent" BorderWidth="0" WidthRequest="25" CornerRadius="100"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End">
+                                <Label HorizontalOptions="Start" TextColor="Black" Text="{Binding Duration}"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

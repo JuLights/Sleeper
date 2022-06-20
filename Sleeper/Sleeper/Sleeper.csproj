@@ -1,0 +1,94 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <!-- <TargetFramework>net5.0</TargetFramework> -->
+	<LangVersion>9.0</LangVersion>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Musics\sound.mp3" />
+    <None Remove="Music\Ambient\ambiant-relax-sounds-10621.mp3" />
+    <None Remove="Music\Ambient\ancient-frequencies-atonal-meditation-112529.mp3" />
+    <None Remove="Music\Ambient\frequency-of-sleep-meditation-113050.mp3" />
+    <None Remove="Music\Ambient\mindfulness-relaxation-amp-meditation-music-22174.mp3" />
+    <None Remove="Music\Ambient\soft-ambient-10782.mp3" />
+    <None Remove="Music\BrainWaves\cosmic-glow-6703.mp3" />
+    <None Remove="Music\BrainWaves\cosmic-universe-1058.mp3" />
+    <None Remove="Music\BrainWaves\horizon-1056.mp3" />
+    <None Remove="Music\Chill\ambient-piano-prod-by-balancebay-109400.mp3" />
+    <None Remove="Music\Chill\falkirk-meditative-ambient-soundscape-for-learning-and-relaxing-95404.mp3" />
+    <None Remove="Music\Chill\fall-asleep-like-a-baby-relax-music-blubon-relaxon-9643.mp3" />
+    <None Remove="Music\ClassicMusic\Dark_Piano_-_Sociopath.mp3" />
+    <None Remove="Music\Insomnia\mike-gora-elemental-108529.mp3" />
+    <None Remove="Music\Insomnia\muzyka-relaksujaca-21783.mp3" />
+    <None Remove="Music\RoyalGodwinWhatYouGonnDoA.mp3" />
+    <None Remove="Music\ThomYorke517.mp3" />
+    <None Remove="RoyalGodwinWhatYouGonnDoA.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Musics\sound.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Music\BrainWaves\cosmic-glow-6703.mp3" />
+    <EmbeddedResource Include="Music\BrainWaves\cosmic-universe-1058.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Music\Ambient\ambiant-relax-sounds-10621.mp3" />
+    <EmbeddedResource Include="Music\Ambient\ancient-frequencies-atonal-meditation-112529.mp3" />
+    <EmbeddedResource Include="Music\Ambient\frequency-of-sleep-meditation-113050.mp3" />
+    <EmbeddedResource Include="Music\Ambient\mindfulness-relaxation-amp-meditation-music-22174.mp3" />
+    <EmbeddedResource Include="Music\Ambient\soft-ambient-10782.mp3" />
+    <EmbeddedResource Include="Music\BrainWaves\horizon-1056.mp3" />
+    <EmbeddedResource Include="Music\Chill\ambient-piano-prod-by-balancebay-109400.mp3" />
+    <EmbeddedResource Include="Music\Chill\falkirk-meditative-ambient-soundscape-for-learning-and-relaxing-95404.mp3" />
+    <EmbeddedResource Include="Music\Chill\fall-asleep-like-a-baby-relax-music-blubon-relaxon-9643.mp3" />
+    <EmbeddedResource Include="Music\Chill\RoyalGodwinWhatYouGonnDoA.mp3" />
+    <EmbeddedResource Include="Music\Chill\ThomYorke517.mp3" />
+    <EmbeddedResource Include="Music\ClassicMusic\Dark_Piano_-_Sociopath.mp3" />
+    <EmbeddedResource Include="Music\Insomnia\mike-gora-elemental-108529.mp3" />
+    <EmbeddedResource Include="Music\Insomnia\muzyka-relaksujaca-21783.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Plugin.MediaManager" Version="1.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\GenrePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SleeperMainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Views\SleeperCalmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\SleeperMainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>
